@@ -1,5 +1,4 @@
-ul li
-{
+ul li {
   padding-left: 10px;
   padding-right: 0%;
   clear: left;
@@ -7,27 +6,38 @@ ul li
   font: 600;
 }
 ul {
-text-align: center;
+  text-align: center;
+  margin-bottom: 0;
 }
-.navbar-right
-{
-text-align: right;
-
+.navbar-right {
+  text-align: right;
 }
-.navbar
-{
-overflow: hidden;
-position: fixed;
-top: 0%;
-width: 100%;
-background-color: #333;
+.navbar {
+  top: 0%;
+  width: 100%;
+  background-color: #333333;
+  overflow: hidden;
+  position: fixed;
 }
 .navbar a {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   float: left;
   display: block;
   color: #f2f2f2;
   text-align: center;
   padding-left: 0%;
   text-decoration: none;
+  text-align: center;
 }
+button {
+  background-color: #444444b8;
+  color: white;
+}
+
+::ng-deep .mat-badge-medium.mat-badge-overlap.mat-badge-before
+    .mat-badge-content {
+    background-color: #328888;
+  }
 

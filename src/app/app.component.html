@@ -1,18 +1,67 @@
 <div>
   <nav class="navbar navbar-dark">
-  <div class="container-fluid">
-    <div class="navbar-header"> 
-      <a  style="padding: 0%;" href="#">WebSiteName</a>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a style="padding: 0%" href="#">KianShoppingCenter</a>
+      </div>
+      <ul style="margin-right: auto;">
+        <li>
+          <button
+            mat-raised-button
+            matBadgePosition="before"
+            matBadgeColor="accent"
+            [matMenuTriggerFor]="menu"
+          >
+            Electronics
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Phones</button>
+            <button mat-menu-item>Laptops</button>
+          </mat-menu>
+        </li>
+        <li>
+          <button
+            mat-raised-button
+            matBadgePosition="before"
+            matBadgeColor="accent"
+            [matMenuTriggerFor]="menu1"
+          >
+            Accessories
+          </button>
+          <mat-menu #menu1="matMenu">
+            <button mat-menu-item>Cover</button>
+            <button mat-menu-item>dongle</button>
+            <button mat-menu-item>Protection</button>
+          </mat-menu>
+        </li>
+      </ul>
+      <ul class="navbar-right">
+        <li>
+          <button
+            mat-raised-button
+            matBadgePosition="before"
+            matBadgeColor="accent"
+            routerLink="/Login"
+          >
+            Sign In / Sign Up
+          </button>
+        </li>
+        <li>
+          <button
+          class="shoping-cell-btn"
+            mat-raised-button
+            matBadge="0"
+            matBadgePosition="before"
+            matBadgeColor="accent"
+          >
+            Shopping Cart
+          </button>
+        </li>
+      </ul>
     </div>
-    <ul>
-      <li><a href="#" >Home</a></li>
-      <li><a href="#" >Page 1</a></li>
-      <li><a href="#" >Page 2</a></li>
-    </ul>
-    <ul class="navbar-right">
-      <li><a href="#" > Sign Up</a></li>
-      <li><a href="#" >Login</a></li>
-    </ul>
-  </div>
-</nav>
+  </nav>
+  <!-- <img src="../assets/picture-1.jpg" style="height: auto; width: 100%;" alt="img"> -->
 </div>
+
+<router-outlet></router-outlet>
+<!-- <a [routerLink]="[ '/path' ]" routerLinkActive="active">name</a> -->

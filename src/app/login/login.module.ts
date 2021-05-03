@@ -17,13 +17,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
 const routes: Routes = [{
   path: '',component: LoginRouterOutletComponent,
-  children:[{path: '', component: LoginComponent}]
+  children:[{path: '', component: LoginComponent},]
 }]
 
 @NgModule({
   declarations: [
     LoginComponent,
-    LoginRouterOutletComponent
+    LoginRouterOutletComponent,
   ],
   imports: [
     CommonModule,

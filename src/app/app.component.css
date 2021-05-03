@@ -41,3 +41,9 @@ button {
     background-color: #328888;
   }
 
+  background-picture{
+    background-image: url("picture-2.jpg");
+    width: 100%;
+    height: auto;
+  }
+  

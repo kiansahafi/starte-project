@@ -11,8 +11,9 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import { LoginComponent } from './login/components/login/login.component';
+import { ProductPageComponent } from './login/components/product-page/product-page.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ProductPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

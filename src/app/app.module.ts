@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import { LoginComponent } from './login/components/login/login.component';
 import { ProductPageComponent } from './login/components/product-page/product-page.component';
+import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 @NgModule({
   declarations: [AppComponent, ProductPageComponent],
   imports: [
@@ -22,9 +23,11 @@ import { ProductPageComponent } from './login/components/product-page/product-pa
     BrowserAnimationsModule,
     MatBadgeModule,
     MatButtonModule,
+    CarouselModule,
     MatMenuModule,
   ],
   providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

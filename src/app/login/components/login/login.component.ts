@@ -9,6 +9,8 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Observable } from 'rxjs';
+import { user } from 'src/app/users';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -53,7 +55,7 @@ export class LoginComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
   constructor(private fb: FormBuilder,
-    private http: HttpClient) {}
+              private http: HttpClient) {}
 
   ngOnInit(): void {
     setInterval(()=>{
@@ -62,10 +64,10 @@ export class LoginComponent implements OnInit {
     },200)
   }
 
-  onSignin() {
-    console.log(this.emailFormControl);
-    // this.http.post<any>('https://tavana-node.herokuapp.com/auth/login', { title: 'login' }).subscribe(data => {
-    //     this.signinForm.value.signinEmail = ;
+  onSignin() : Observable <user[]>{
+    return this.http.get<user[]>('https://tavana-node.herokuapp.com/auth/login');
+    // .subscribe(
+    //   data => { this.signinForm.value.signinEmail = data;
     // })
   }
   onSignup() {}

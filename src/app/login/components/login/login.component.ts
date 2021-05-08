@@ -10,6 +10,8 @@ import {
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Observable } from 'rxjs';
+import { ProductService } from 'src/app/product.service';
+import { UserService } from 'src/app/user.service';
 import { user } from 'src/app/users';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -41,7 +43,7 @@ export class LoginComponent implements OnInit {
 
   signinForm = this.fb.group({
     signinEmail: ['',Validators.email],
-    signinPassword: '',
+    signinPassword: ['' , Validators.pattern("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$")],
     rememberForm: '',
   });
 
@@ -54,21 +56,40 @@ export class LoginComponent implements OnInit {
   });
 
   matcher = new MyErrorStateMatcher();
-  constructor(private fb: FormBuilder,
-              private http: HttpClient) {}
+  constructor(private fb: FormBuilder, 
+              private http: HttpClient,
+              private userservice:UserService,
+              private productservice:ProductService,
+              ) {}
 
   ngOnInit(): void {
-    setInterval(()=>{
-      console.log(this.signinForm.valid);
-      
-    },200)
   }
 
-  onSignin() : Observable <user[]>{
-    return this.http.get<user[]>('https://tavana-node.herokuapp.com/auth/login');
-    // .subscribe(
-    //   data => { this.signinForm.value.signinEmail = data;
+  onSignin(){
+    let model = {
+      userName : this.signinForm.value.signinEmail,
+      password : this.signinForm.value.signinPassword,
+    }
+
+    console.log(this.signinForm.value);
+    
+    // this.userservice.getuser(model).subscribe((res)=>{
+    //   console.log(res);
+      
+    // })    
+  }
+  onSignup() {
+    let model= {
+      userName: this.signupForm.value.signupEmail,
+      password: this.signupForm.value.signupPassword,
+    }
+
+    this.userservice.senduser(model).subscribe(resp => {
+      console.log(resp)
+    })
+
+    //   console.log(res);
+      
     // })
   }
-  onSignup() {}
 }

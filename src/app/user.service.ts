@@ -8,9 +8,13 @@ import { user } from './users';
 })
 export class UserService {
 
-  constructor() {private http:HttpClient}
+  constructor(private http:HttpClient) {}
+  
 
-  getuser() : Observable <user[]>{
-    return this.http.get<user[]>('https://tavana-node.herokuapp.com/auth/login');
+  getuser(model: any){
+    return this.http.post('https://tavana-node.herokuapp.com/auth/login', model );
   }
-
+  senduser(model: any){
+    return this.http.post<any>('https://tavana-node.herokuapp.com/auth/signup', model)
+  }
+}

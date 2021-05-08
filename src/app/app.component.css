@@ -19,7 +19,7 @@ ul {
   height: 57px;
   background-color: #333333;
   overflow: hidden;
-  position: fixed;
+  position: inherit;
   display: inline-block;
 }
 .navbar a {
@@ -37,8 +37,8 @@ ul {
 button {
   background-color: #444444b8;
   color: white;
-  margin-top: 10px;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 ::ng-deep

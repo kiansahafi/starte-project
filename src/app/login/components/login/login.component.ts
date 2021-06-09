@@ -71,7 +71,11 @@ export class LoginComponent implements OnInit {
       password : this.signinForm.value.signinPassword,
     }
 
-    console.log(this.signinForm.value);
+
+    this.userservice.getuser(model).subscribe(resp => {
+      console.log(resp);
+    })
+    // console.log(this.signinForm.value);
     
     // this.userservice.getuser(model).subscribe((res)=>{
     //   console.log(res);

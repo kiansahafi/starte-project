@@ -14,6 +14,9 @@ import { LoginComponent } from './login/components/login/login.component';
 import { ProductPageComponent } from './login/components/product-page/product-page.component';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { HttpClientModule } from '@angular/common/http';
+// import { CartComponent } from './cart/cart.component';
+
+// in declarations you should add the Cart component
 @NgModule({
   declarations: [AppComponent, ProductPageComponent],
   imports: [

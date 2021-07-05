@@ -1,0 +1,19 @@
+<div class="container">
+  <div style="display: flex" class="row">
+    <div
+      class="col-xl-4 col-lg-4 col-md-6 col-sm-12"
+      *ngFor="let product of products; let i = index"
+      (click)="sendToProductPage(i)"
+    >
+      <img [src]="product.imageUrl" alt="product-picture" />
+      <div [href]="url">
+        <h3>{{ product.name }}</h3>
+      </div>
+      <div style="align-items: center">price: ${{ product.price }}</div>
+      <div>{{ product.id }}</div>
+      <app-product-page [Item]="product"></app-product-page>
+    </div>
+  </div>
+</div>
+
+<!-- <app-product-page [testInput]="products"></app-product-page> -->

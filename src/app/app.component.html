@@ -2,37 +2,24 @@
   <nav class="navbar navbar-dark">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a style="padding: 0%;" href="#">KianShoppingCenter</a>
+        <img
+          src="https://s4.uupload.ir/files/da7babbcf60e4ad8be113b5feb2ba276_xqw.png"
+          width="50"
+          height="50"
+          alt="logo"
+        />
       </div>
+      <a style="padding: 0%" href="#">KianShoppingCenter</a>
       <ul style="margin-right: auto">
         <li>
           <button
             mat-raised-button
             matBadgePosition="before"
             matBadgeColor="accent"
-            [matMenuTriggerFor]="menu"
+            (click)="trasferProducts()"
           >
-            Electronics
+            Products
           </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>Phones</button>
-            <button mat-menu-item>Laptops</button>
-          </mat-menu>
-        </li>
-        <li>
-          <button
-            mat-raised-button
-            matBadgePosition="before"
-            matBadgeColor="accent"
-            [matMenuTriggerFor]="menu1"
-          >
-            Accessories
-          </button>
-          <mat-menu #menu1="matMenu">
-            <button mat-menu-item>Cover</button>
-            <button mat-menu-item>dongle</button>
-            <button mat-menu-item>Protection</button>
-          </mat-menu>
         </li>
       </ul>
       <ul class="navbar-right">
@@ -48,16 +35,18 @@
         </li>
         <li>
           <button
+            [matMenuTriggerFor]="pashmakMenu"
             class="shoping-cell-btn"
             mat-raised-button
-            matBadge="0"
             matBadgePosition="before"
             matBadgeColor="accent"
-            [routerLink]="['/Cart']"
-           (click)="onCard()" 
+            (hover)="onCard()"
           >
             Shopping Cart
           </button>
+          <mat-menu #pashmakMenu="matMenu">
+            <app-shopping-cart-view></app-shopping-cart-view>
+          </mat-menu>
         </li>
       </ul>
     </div>
@@ -66,66 +55,6 @@
 
 <router-outlet></router-outlet>
 
-
-
-<!-- 
-<div class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="..." alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div> -->
-
-
-
-
-
-
-
-<div class="mt-5"></div>
-    
-    <owl-carousel-o [options]="NotCustomOptions">
-      <!-- <ng-container *ngFor="let fslide of FslidesStore">
-        <ng-template carouselSlide [id]= "fslide.id"></ng-template>
-        <img [srd]="fslide.srt" [alt]="fslide.alt" [title]="fslide.title">
-      </ng-container> -->
-    </owl-carousel-o>
-
-
-
-
-<div class="mt-5"></div>
-  <owl-carousel-o [options]="customOptions">
-    <!-- <ng-container *ngFor="let slide of slidesStore">
-      <ng-template carouselSlide [id]="slide.id">
-        <img [src]="slide.src" [alt]="slide.alt" [title]="slide.title"> 
-      </ng-template>
-    </ng-container>  -->
-  </owl-carousel-o>
-
-
-
-  
 <footer>
   <h3>Built by Kian 😁✌️</h3>
 </footer>

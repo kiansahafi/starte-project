@@ -1,37 +1,44 @@
-body{
+body {
   margin: 0;
   padding: 0;
   border: 0;
-  
+
   /*background-color: #EEEEEE;*/
-  color: #444;
+  color: #eeeeee;
   font-family: "Helvetica", sans-serif;
   height: 100%;
   width: 100%;
 }
 
-*{
+.wrapper {
+  height: 95%;
+}
+* {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
   border: 0;
 }
 
-h1{
+h1 {
   font-size: 130%;
 }
 
-h2{
+h2 {
   color: #aaa;
   font-size: 18px;
   font-weight: 400;
 }
 
-
-p{
+p {
   font-size: 12px;
   line-height: 1.5;
 }
@@ -40,7 +47,7 @@ p{
   padding: 20px 0px;
 }*/
 
-.nav{
+.nav {
   background-color: #eee;
   width: 100%;
   text-align: center;
@@ -48,39 +55,39 @@ p{
   /*padding: 0px 3%;*/
 }
 
-.nav .logo{
+.nav .logo {
   display: inline-block;
 
   width: auto;
 }
 
-.nav .logo img{
+.nav .logo img {
   width: 120px;
 }
 
-.nav .nav-links{
+.nav .nav-links {
   display: inline-block;
   text-align: center;
   margin: 0 auto;
 }
 
-.nav-links a{
+.nav-links a {
   color: #000;
   font-size: 12px;
   text-decoration: none;
   margin: 0px 15px;
 }
 
-.nav-links a:hover{
+.nav-links a:hover {
   border-bottom: 2px solid #000;
 }
 
-.nav .cart-icon{
+.nav .cart-icon {
   color: #444;
   display: inline-block;
 }
 
-.product{
+.product {
   background-color: #eee;
   border-bottom: 1px solid #ddd;
   clear: both;
@@ -93,27 +100,24 @@ p{
   clear: both;
 }
 
-
-.col-1-2{
+.col-1-2 {
   width: 50%;
   height: 100%;
   float: left;
 }
 
-
-.product-image .bg{
-  background-image: url('https://cdn.shopify.com/s/files/1/0199/4554/products/fncwdmain_1024x1024.png?v=1428681549');
+.product-image .bg {
   background-size: cover;
   background-position: center top;
   width: 100%;
   min-height: 450px;
 }
 
-.product-image .indicator{
-  text-align:center;
+.product-image .indicator {
+  text-align: center;
 }
 
-.product-image .dot{
+.product-image .dot {
   background-color: #aaa;
   border-radius: 50%;
   cursor: pointer;
@@ -124,30 +128,30 @@ p{
   transition: all 400ms ease;
 }
 
-.dot:hover{
+.dot:hover {
   background-color: #444;
 }
 
-.product-info{
+.product-info {
   padding: 0px 8%;
 }
 
-.product-info h1{
+.product-info h1 {
   margin-bottom: 5px;
 }
 
-.product-info h2{
+.product-info h2 {
   margin-bottom: 50px;
 }
 
-.product-info .select-dropdown{
+.product-info .select-dropdown {
   display: inline-block;
   margin-right: 10px;
   position: relative;
   width: auto;
 }
 
-.product-info select{
+.product-info select {
   cursor: pointer;
   margin-bottom: 20px;
   padding: 12px 92px 12px 15px;
@@ -157,29 +161,30 @@ p{
   color: #aaa;
   font-size: 12px;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-select:active, select:focus {
+select:active,
+select:focus {
   outline: none;
   box-shadow: none;
 }
 
 .select-dropdown:after {
-    content: " ";
+  content: " ";
   cursor: pointer;
-    position: absolute;
-    top: 30%;
+  position: absolute;
+  top: 30%;
   right: 10%;
-    width: 0; 
-    height: 0; 
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #aaa;
-  }
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #aaa;
+}
 
-.product-info a.add-btn{
+.product-info .add-btn {
   background-color: #444;
   border-radius: 2px;
   color: #eee;
@@ -192,15 +197,15 @@ select:active, select:focus {
   transition: all 400ms ease;
 }
 
-a.add-btn:hover{
+a.add-btn:hover {
   background-color: #555;
 }
 
-.product-info p{
+.product-info p {
   margin-bottom: 30px;
 }
 
-.product-info p a{
+.product-info p a {
   border-bottom: 1px dotted #444;
   color: #444;
   font-weight: 700;
@@ -208,35 +213,33 @@ a.add-btn:hover{
   transition: all 400ms ease;
 }
 
-.product-info p a:hover{
-  opacity: .7;
+.product-info p a:hover {
+  opacity: 0.7;
 }
 
-.product-info ul{
+.product-info ul {
   font-size: 12px;
   padding: 0;
   margin-bottom: 50px;
 }
 
-.product-info li{
+.product-info li {
   list-style-type: none;
   margin-bottom: 5px;
 }
 
-.product-info li::before{
-  content:"\2022";
+.product-info li::before {
+  content: "\2022";
   margin-right: 20px;
 }
 
-
-.product-info a.share-link{
+.product-info a.share-link {
   color: #aaa;
   font-size: 11px;
   margin-right: 30px;
   text-decoration: none;
 }
 
-.product-info a.share-link:hover{
+.product-info a.share-link:hover {
   border-bottom: 2px solid #aaa;
 }
-

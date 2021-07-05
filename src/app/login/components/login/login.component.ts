@@ -9,6 +9,7 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ProductService } from 'src/app/product.service';
 import { UserService } from 'src/app/user.service';
@@ -42,58 +43,56 @@ export class LoginComponent implements OnInit {
   ]);
 
   signinForm = this.fb.group({
-    signinEmail: ['',Validators.email],
-    signinPassword: ['' , Validators.pattern("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$")],
+    signinEmail: ['', Validators.email],
+    signinPassword: [
+      '',
+      Validators.pattern('^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$'),
+    ],
     rememberForm: '',
   });
 
   signupForm = this.fb.group({
     signupName: '',
     signupLastName: '',
-    signupEmail: ['',Validators.email],
+    signupEmail: ['', Validators.email],
     signupPassword: '',
     sigupRePassword: '',
   });
 
   matcher = new MyErrorStateMatcher();
-  constructor(private fb: FormBuilder, 
-              private http: HttpClient,
-              private userservice:UserService,
-              private productservice:ProductService,
-              ) {}
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router,
+    private userservice: UserService,
+    private productservice: ProductService
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  onSignin(){
+  onSignin() {
     let model = {
-      userName : this.signinForm.value.signinEmail,
-      password : this.signinForm.value.signinPassword,
-    }
+      userName: this.signinForm.value.signinEmail,
+      password: this.signinForm.value.signinPassword,
+    };
 
-
-    this.userservice.getuser(model).subscribe(resp => {
+    this.userservice.getuser(model).subscribe((resp: any) => {
       console.log(resp);
-    })
-    // console.log(this.signinForm.value);
-    
-    // this.userservice.getuser(model).subscribe((res)=>{
-    //   console.log(res);
-      
-    // })    
+      localStorage.setItem('token', resp.token);
+      this.router.navigate(['/product-list']);
+    });
   }
+
   onSignup() {
-    let model= {
+    let model = {
       userName: this.signupForm.value.signupEmail,
       password: this.signupForm.value.signupPassword,
-    }
+    };
 
-    this.userservice.senduser(model).subscribe(resp => {
-      console.log(resp)
-    })
-
-    //   console.log(res);
-      
-    // })
+    this.userservice.senduser(model).subscribe((resp: any) => {
+      console.log(resp);
+      localStorage.setItem('token', resp.token);
+      this.router.navigate(['/product-list']);
+    });
   }
 }

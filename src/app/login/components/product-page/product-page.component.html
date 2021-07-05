@@ -1,21 +1,8 @@
-<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'> -->
-
-<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
-
-<div class="wrapper"> 
-  <div class="nav">    
-    <div class="nav-links">
-      <a href="">Store</a>
-      <a href="">Collections</a>
-      <a href="">About</a>
-      <a href="">Contact</a>
-    </div>
-      
-    <a href="" class="cart-icon"><i class="fa fa-shopping-cart"></i></a>
-  </div>
-  
+<div class="wrapper">
   <div class="product group">
-    <div class="col-1-2 product-image">
+    <div class="product-image">
+      <img src="{{ productInfo.imageUrl }}" class="col-1-2 product-image" />
+
       <div class="bg"></div>
       <div class="indicator">
         <div class="dot one"></div>
@@ -26,9 +13,10 @@
       </div>
     </div>
     <div class="col-1-2 product-info">
-      <h1>Field Notes Cherry Graph 3-Pack</h1>
-      <h2>$1299.99</h2>
-      
+      <!-- <div *ngFor="let product of productInfo"></div> -->
+      <h1>{{ productInfo.name }}</h1>
+      <h2>${{ productInfo.price }}</h2>
+
       <div class="select-dropdown">
         <select>
           <option value="size">Size</option>
@@ -37,7 +25,7 @@
           <option value="size">Large</option>
         </select>
       </div>
-      
+
       <div class="select-dropdown">
         <select>
           <option value="quantity">1</option>
@@ -46,11 +34,11 @@
           <option value="quantity">4</option>
         </select>
       </div>
-      
-      <br>
-      
-      <a href="" class="add-btn">Add To Cart</a>
-      
+
+      <br />
+
+      <button class="add-btn" (click)="addToCart()">Add To Cart</button>
+
       <ul>
         <li>Graph paper 40-page memo book.</li>
         <li>3 book per pack. Banded and shrink-wrapped</li>
@@ -59,7 +47,4 @@
       </ul>
     </div>
   </div>
-  
-
-  
 </div>

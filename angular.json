@@ -130,7 +130,11 @@
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss",
-      "styleext": "scss"
+      "styleext": "scss",
+      "skipTests": true
+    },
+    "@schematics/angular:service": {
+      "skipTests": true
     }
   }
 }

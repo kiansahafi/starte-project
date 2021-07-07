@@ -14,6 +14,8 @@ import { ProductPageComponent } from './login/components/product-page/product-pa
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginModule } from './login/login.module';
+import { CoreModule } from './core/core.module';
+import { AppConfigService } from './core/services/app-config.service';
 
 // in declarations you should add the Cart component
 @NgModule({
@@ -30,8 +32,9 @@ import { LoginModule } from './login/login.module';
     MatMenuModule,
     HttpClientModule,
     LoginModule,
+    CoreModule,
   ],
-  providers: [],
+  providers: [AppConfigService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })

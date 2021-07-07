@@ -11,6 +11,7 @@ import {
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AlertService } from 'src/app/core/alert';
 import { ProductService } from 'src/app/product.service';
 import { UserService } from 'src/app/user.service';
 import { user } from 'src/app/users';
@@ -56,7 +57,7 @@ export class LoginComponent implements OnInit {
     signupLastName: '',
     signupEmail: ['', Validators.email],
     signupPassword: '',
-    sigupRePassword: '',
+    signupRePassword: '',
   });
 
   matcher = new MyErrorStateMatcher();
@@ -64,6 +65,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
+    private alert: AlertService,
     private userservice: UserService,
     private productservice: ProductService
   ) {}
@@ -79,6 +81,11 @@ export class LoginComponent implements OnInit {
     this.userservice.getuser(model).subscribe((resp: any) => {
       console.log(resp);
       localStorage.setItem('token', resp.token);
+      this.alert.showSnackbar(
+        'Congradulations, You Have Successfully signed in to your account!😁',
+        'SUCCESS',
+        3000
+      );
       this.router.navigate(['/product-list']);
     });
   }
@@ -92,6 +99,11 @@ export class LoginComponent implements OnInit {
     this.userservice.senduser(model).subscribe((resp: any) => {
       console.log(resp);
       localStorage.setItem('token', resp.token);
+      this.alert.showSnackbar(
+        'Congradulations, You Have Successfully made an account!😁',
+        'SUCCESS',
+        3000
+      );
       this.router.navigate(['/product-list']);
     });
   }

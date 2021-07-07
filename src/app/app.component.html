@@ -18,12 +18,12 @@
             matBadgeColor="accent"
             (click)="trasferProducts()"
           >
-            Products
+            Products page
           </button>
         </li>
       </ul>
       <ul class="navbar-right">
-        <li>
+        <li *ngIf="showsignin(); else logout">
           <button
             mat-raised-button
             matBadgePosition="before"
@@ -33,6 +33,19 @@
             Sign In / Sign Up
           </button>
         </li>
+        <ng-template #logout>
+          <li>
+            <button
+              mat-raised-button
+              matBadgePosition="before"
+              matBadgeColor="accent"
+              routerLink="Login"
+              (click)="LogOut()"
+            >
+              LogOut
+            </button>
+          </li>
+        </ng-template>
         <li>
           <button
             [matMenuTriggerFor]="pashmakMenu"
@@ -52,7 +65,6 @@
     </div>
   </nav>
 </div>
-
 <router-outlet></router-outlet>
 
 <footer>

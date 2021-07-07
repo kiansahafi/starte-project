@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AlertService } from 'src/app/core/alert';
 import { ProductService } from 'src/app/product.service';
 import { __values } from 'tslib';
 
@@ -10,7 +11,10 @@ import { __values } from 'tslib';
 export class ProductPageComponent implements OnInit {
   @Input() Item;
   productInfo: any;
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private alert: AlertService
+  ) {}
 
   ngOnInit() {
     this.productService.getProduct.subscribe((data) => {
@@ -19,6 +23,11 @@ export class ProductPageComponent implements OnInit {
     });
   }
   addToCart() {
+    this.alert.showSnackbar(
+      'Your order have been submitted! Thanks You For Chosing Us!😁',
+      'SUCCESS',
+      4000
+    );
     this.productService.setProductCart = { ...this.productInfo, quantity: 5 };
   }
 }
